@@ -1,6 +1,7 @@
 #
 ESPHOME_NAME	= environment
 CONFIGURATION	= ${ESPHOME_NAME}.yaml
+DEVICE		= ${ESPHOME_NAME}
 
 # Targets
 all::
@@ -31,3 +32,8 @@ ${FIRMWARE_BIN}: bin/esphome ${CONFIGURATION}
 	. bin/activate; \
 	esphome compile ${CONFIGURATION}
 ${CONFIGURATION}: secrets.yaml
+
+# Upload
+upload: compile
+	. bin/activate; \
+	esphome upload --device $(DEVICE) ${CONFIGURATION}
