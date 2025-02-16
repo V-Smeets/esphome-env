@@ -39,6 +39,9 @@ sensor:
     address: 0x76
     temperature:
       name: Temperature
+      filters:
+        # 25.5 => 18.8
+        - offset: -6.7
     pressure:
       name: Pressure
     humidity:
