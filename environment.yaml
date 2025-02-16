@@ -44,5 +44,8 @@ sensor:
         - offset: -6.7
     pressure:
       name: Pressure
+      filters:
+        # 1017.9 => 1025.0
+        - offset: 7.0
     humidity:
       name: Humidity
