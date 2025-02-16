@@ -30,3 +30,13 @@ captive_portal:
 i2c:
   scl: D1
   sda: D2
+
+sensor:
+  - platform: bme280_i2c
+    address: 0x76
+    temperature:
+      name: Temperature
+    pressure:
+      name: Pressure
+    humidity:
+      name: Humidity
