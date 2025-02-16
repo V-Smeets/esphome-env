@@ -37,3 +37,8 @@ ${CONFIGURATION}: secrets.yaml
 upload: compile
 	. bin/activate; \
 	esphome upload --device $(DEVICE) ${CONFIGURATION}
+
+# Logs
+logs: compile
+	. bin/activate; \
+	esphome logs --device $(DEVICE) ${CONFIGURATION}
