@@ -1,5 +1,8 @@
 esphome:
   name: environment
+  project:
+    name: vsmeets.esphome-env
+    version: 0.0.0
 
 esp8266:
   board: d1_mini
