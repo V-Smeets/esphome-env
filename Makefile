@@ -1,4 +1,6 @@
 #
+ESPHOME_NAME	= environment
+CONFIGURATION	= ${ESPHOME_NAME}.yaml
 
 # Targets
 all::
@@ -18,3 +20,14 @@ clean::
 bin/esphome: bin/activate
 	. bin/activate; \
 	pip install esphome
+
+# Compile
+all:: compile
+clean::
+	$(RM) --recursive .esphome
+FIRMWARE_BIN	= .esphome/build/$(ESPHOME_NAME)/.pioenvs/$(ESPHOME_NAME)/firmware.bin
+compile: ${FIRMWARE_BIN}
+${FIRMWARE_BIN}: bin/esphome ${CONFIGURATION}
+	. bin/activate; \
+	esphome compile ${CONFIGURATION}
+${CONFIGURATION}: secrets.yaml
