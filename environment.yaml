@@ -2,7 +2,7 @@ esphome:
   name: environment
   project:
     name: vsmeets.esphome-env
-    version: 1.0.0
+    version: 1.1.0
 
 esp8266:
   board: d1_mini
@@ -39,7 +39,13 @@ sensor:
     address: 0x76
     temperature:
       name: Temperature
+      filters:
+        # 25.5 => 18.8
+        - offset: -6.7
     pressure:
       name: Pressure
+      filters:
+        # 1017.9 => 1025.0
+        - offset: 7.0
     humidity:
       name: Humidity
